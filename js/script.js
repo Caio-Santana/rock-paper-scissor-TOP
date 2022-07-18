@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const ROCK = 'Rock';
     const PAPER = 'Paper';
     const SCISSORS = 'Scissors';
-    const OPTIONS = [ROCK, PAPER, SCISSORS];
+    const options = [ROCK, PAPER, SCISSORS];
     let playerScore = 0, computerScore = 0;
 
     function computerPlay() {
-        const index = Math.floor((Math.random() * OPTIONS.length));
-        return OPTIONS[index];
+        const index = Math.floor((Math.random() * options.length));
+        return options[index];
     }
 
     function playRound(playerSelection, computerSelection) {
@@ -72,27 +72,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function game() {
-        const GAME_ROUNDS = 5;
+        const gameRounds = 5;
         let round = 1;
         let keepGoing = true;
         while (keepGoing) {
-            const PLAYER_INPUT = prompt('Rock, Paper or Scissors?');
-            if (PLAYER_INPUT === null || PLAYER_INPUT === undefined) {
+            const playerInput = prompt('Rock, Paper or Scissors?');
+            if (playerInput === null || playerInput === undefined) {
                 continue;
             }
 
-            const PLAYER_PLAY = findSelection(PLAYER_INPUT);
-            if (PLAYER_PLAY === null) {
-                console.log(`Invalid input: ${PLAYER_INPUT}`);
+            const playerPlay = findSelection(playerInput);
+            if (playerPlay === null) {
+                console.log(`Invalid input: ${playerInput}`);
                 continue;
             }
 
-            const ROUND_RESULT = playRound(PLAYER_PLAY, computerPlay());
-            console.log(`Round ${round}: ${ROUND_RESULT}`);
+            const roundResult = playRound(playerPlay, computerPlay());
+            console.log(`Round ${round}: ${roundResult}`);
 
             round++;
 
-            if (round > GAME_ROUNDS) {
+            if (round > gameRounds) {
                 console.log(gameResult());
                 keepGoing = false;
             }
